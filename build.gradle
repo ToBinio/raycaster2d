@@ -3,6 +3,9 @@ plugins {
     id 'maven-publish'
 }
 
+sourceCompatibility = 1.16
+targetCompatibility = 1.16
+
 group 'at.tobinio'
 version '0.1'
 

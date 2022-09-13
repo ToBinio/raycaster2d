@@ -37,9 +37,6 @@ public class RayCaster {
                 float u = ((rayCatcher.location().x - startPos.x) * dir.y - (rayCatcher.location().y - startPos.y) * dir.x) / d;
                 float t = ((rayCatcher.location().x - startPos.x) * rayCatcher.direction().y - (rayCatcher.location().y - startPos.y) * rayCatcher.direction().x) / d;
 
-                System.out.println("U : " + u);
-                System.out.println("T : " + t);
-
                 if (u < 0 || u > 1 || t < 0) continue;
 
                 if (nearestCatcherObj == null || nearestDistance > t) {
