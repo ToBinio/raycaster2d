@@ -16,10 +16,6 @@ public class RayCatcherLine extends RayCatcherObj {
         rayCatcher.add(new RayCatcher(pointA, dir));
     }
 
-    public RayCatcherLine(Vec2 location, Vec2 direction, float length) {
-        rayCatcher.add(new RayCatcher(location, direction.mul(length)));
-    }
-
     @Override
     public String toString() {
         return rayCatcher + "";
