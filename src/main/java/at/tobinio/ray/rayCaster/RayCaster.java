@@ -1,5 +1,6 @@
 package at.tobinio.ray.rayCaster;
 
+import at.tobinio.ray.RayCast;
 import at.tobinio.ray.rayCatcher.RayCatcher;
 import at.tobinio.ray.rayCatcher.RayCatcherObj;
 import at.tobinio.util.Vec2;
@@ -25,10 +26,11 @@ public class RayCaster {
         rayCatcherObjs.add(rayCatcherObj);
     }
 
-    public RayCatcherObj cast(Vec2 startPos, Vec2 dir) {
+    public RayCast cast(Vec2 startPos, Vec2 dir) {
 
         float nearestDistance = 0;
         RayCatcherObj nearestCatcherObj = null;
+        RayCatcher nearestCatcher = null;
 
         for (RayCatcherObj rayCatcherObj : rayCatcherObjs) {
             for (RayCatcher rayCatcher : rayCatcherObj.getRayCatcher()) {
@@ -42,10 +44,11 @@ public class RayCaster {
                 if (nearestCatcherObj == null || nearestDistance > t) {
                     nearestCatcherObj = rayCatcherObj;
                     nearestDistance = t;
+                    nearestCatcher = rayCatcher;
                 }
             }
         }
 
-        return nearestCatcherObj;
+        return new RayCast(nearestDistance, nearestCatcherObj, nearestCatcher);
     }
 }

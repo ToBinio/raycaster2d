@@ -7,7 +7,7 @@ sourceCompatibility = 1.16
 targetCompatibility = 1.16
 
 group 'at.tobinio'
-version '0.1'
+version '0.2'
 
 repositories {
     mavenCentral()
@@ -20,4 +20,12 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
 }
